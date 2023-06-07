@@ -4,11 +4,13 @@ import Backendless from "backendless";
 const Home = () => {
 
     Backendless.serverURL = "https://api.backendless.com";
-    Backendless.initApp('68681B48-AF70-FFE5-FF71-B435F4D4C700', 'BFB78BE0-BA3A-4875-8B16-AEFAD7D7659C');
+    Backendless.initApp('88F13D1C-FC0C-2D37-FF91-A541959F4400', '4D32BF48-EE07-4934-B468-177BA8E02A23');
+
+    const [currentUser, setCurrentUser] = useState<any>()
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [name, setName] = useState("qdwdwq")
+    const [name, setName] = useState("")
     const [age, setAge] = useState("")
     const [country, setCountry] = useState("")
     const [gender, setGender] = useState("")
@@ -77,7 +79,7 @@ const Home = () => {
     console.log(name)
 
     const handleFile = () => {
-        Backendless.Files.upload(image, `users/${name}`).then((response) => {
+        Backendless.Files.upload(image, `users/${currentUser.name}`).then((response) => {
             console.log(response)
         })
     }
@@ -85,7 +87,7 @@ const Home = () => {
     const [nameFolder, setNameFolder] = useState("")
 
     const createFolder = () => {
-        Backendless.Files.upload("reg.txt", `users/${name}/${nameFolder}`).then((response) => {
+        Backendless.Files.upload("reg.txt", `users/${currentUser.name}/${nameFolder}`).then((response) => {
 
         }).catch((e) => {
             alert(e)
@@ -95,13 +97,13 @@ const Home = () => {
     const [nameFolderDelete, setNameFolderDelete] = useState("")
 
     const deleteFolder = () => {
-        Backendless.Files.remove(`users/${name}/${nameFolderDelete}`)
+        Backendless.Files.remove(`users/${currentUser.name}/${nameFolderDelete}`)
     }
 
     const [list, setList] = useState<any>()
 
     const fetchList = () => {
-        Backendless.Files.listing(`users/${name}/sharedWithMe`).then((response) => {
+        Backendless.Files.listing(`users/${currentUser.name}/sharedWithMe`).then((response) => {
             setList(response)
         })
     }
@@ -116,10 +118,7 @@ const Home = () => {
     useEffect(() => {
         Backendless.UserService.getCurrentUser().then((response: any) => {
             console.log(response)
-            // setName(response.name)
-            // setAge(response.age)
-            // setCountry(response.country)
-            // setGender(response.gender)
+            setCurrentUser(response)
         })
     }, [])
 
@@ -128,25 +127,25 @@ const Home = () => {
             <header className="App-header">
 
                 <div style={{marginBottom: "10px"}}>Регистрация</div>
-                <input className="form-control" style={{width: "15%", marginBottom: "10px"}}
+                <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="email"
                        onChange={(e) => setEmail(e.target.value)} value={email}/>
-                <input className="form-control" style={{width: "15%", marginBottom: "10px"}}
+                <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="password"
                        onChange={(e) => setPassword(e.target.value)} value={password}/>
-                <input className="form-control" style={{width: "15%", marginBottom: "10px"}}
+                <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="name"
                        onChange={(e) => setName(e.target.value)} value={name}/>
-                <input className="form-control" style={{width: "15%", marginBottom: "10px"}}
+                <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="age"
                        onChange={(e) => setAge(e.target.value)} value={age}/>
-                <input className="form-control" style={{width: "15%", marginBottom: "10px"}}
+                <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="country"
                        onChange={(e) => setCountry(e.target.value)} value={country}/>
-                <input className="form-control" style={{width: "15%", marginBottom: "10px"}}
+                <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="gender"
                        onChange={(e) => setGender(e.target.value)} value={gender}/>
                 <button onClick={reg}>Reg</button>
 
 
                 <div>Вход</div>
-                <input className="form-control" style={{width: "15%", marginBottom: "10px"}}
+                <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="email"
                        onChange={(e) => setEmailLog(e.target.value)} value={emailLog}/>
-                <input className="form-control" style={{width: "15%", marginBottom: "10px"}}
+                <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="password"
                        onChange={(e) => setPasswordLog(e.target.value)} value={passwordLog}/>
                 <button onClick={log}>Log</button>
 

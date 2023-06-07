@@ -4,7 +4,7 @@ import Backendless from "backendless";
 const Profile = () => {
 
     Backendless.serverURL = "https://api.backendless.com";
-    Backendless.initApp('68681B48-AF70-FFE5-FF71-B435F4D4C700', 'BFB78BE0-BA3A-4875-8B16-AEFAD7D7659C');
+    Backendless.initApp('88F13D1C-FC0C-2D37-FF91-A541959F4400', '4D32BF48-EE07-4934-B468-177BA8E02A23');
 
     const [id, setId] = useState("")
     const [name, setName] = useState("")
