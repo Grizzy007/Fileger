@@ -61,7 +61,6 @@ const Profile = () => {
     //         population: 2196000,
     //         photo     : 'https://upload.wikimedia.org/wikipedia/en/thumb/7/76/Houston_Collage.png/800px-Houston_Collage.png'
     //     }
-    //
     //     return Backendless.Geo.savePoint(houstonTX)
     // }
 
