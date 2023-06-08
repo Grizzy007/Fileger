@@ -69,7 +69,7 @@ const Home = () => {
 
 
     const help = () => {
-        Backendless.UserService.restorePassword("tank12358@gmail.com").then((response) => {
+        Backendless.UserService.restorePassword(email).then((response) => {
             console.log(response)
         })
     }
@@ -126,7 +126,7 @@ const Home = () => {
         <div className="App">
             <header className="App-header">
 
-                <div style={{marginBottom: "10px"}}>Регистрация</div>
+                <div style={{marginBottom: "10px"}}>Registration</div>
                 <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="email"
                        onChange={(e) => setEmail(e.target.value)} value={email}/>
                 <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="password"
@@ -139,18 +139,20 @@ const Home = () => {
                        onChange={(e) => setCountry(e.target.value)} value={country}/>
                 <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="gender"
                        onChange={(e) => setGender(e.target.value)} value={gender}/>
-                <button onClick={reg}>Reg</button>
+                <button onClick={reg}>Register</button>
 
 
-                <div>Вход</div>
+                <div>Login</div>
                 <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="email"
                        onChange={(e) => setEmailLog(e.target.value)} value={emailLog}/>
                 <input className="form-control" style={{width: "15%", marginBottom: "10px"}} placeholder="password"
                        onChange={(e) => setPasswordLog(e.target.value)} value={passwordLog}/>
-                <button onClick={log}>Log</button>
+                <button onClick={log}>Login</button>
 
 
-                <button onClick={help}>Help</button>
+                <input className="form-control" style={{width: "15%", marginBottom:"10px", marginTop: "30px"}} placeholder="email"
+                       onChange={(e) => setEmail(e.target.value)} value={email}/>
+                <button style ={{marginBottom:"20px"}}onClick={help}>Restore password</button>
 
                 {image &&
                 <img src={URL.createObjectURL(image)} style={{width: "100px", height: "100px", objectFit: "contain"}}
@@ -169,7 +171,7 @@ const Home = () => {
                 <div>Delete folder/file by name</div>
                 <input placeholder="delete folder" value={nameFolderDelete}
                        onChange={(e) => setNameFolderDelete(e.target.value)}/>
-                <button onClick={deleteFolder}>Delete folder</button>
+                <button onClick={deleteFolder}>Delete</button>
 
                 <button onClick={fetchList}>get list</button>
                 <div style={{display: "flex", alignItems: "center"}}>
