@@ -59,11 +59,11 @@ const Login = () => {
             <label className="col-sm-4 col-form-label text-start">Restore password</label>
             <div className="col-sm-10 mb-1" style={{ width: '40%' }}>
               <input
-                type="password"
+                type="text"
                 className="form-control"
                 placeholder="Enter your email"
                 style={{ fontSize: 12 }}
-                onChange={(e) => setPasswordLog(e.target.value)}
+                onChange={(e) => setRestorePwd(e.target.value)}
                 value={restorePwd}
               />
             </div>
