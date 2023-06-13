@@ -19,7 +19,7 @@ const Home = () => {
   const [nameFolder, setNameFolder] = useState("")
 
   const createFolder = () => {
-    Backendless.Files.upload("reg.txt", `users/${currentUser.name}/${nameFolder}`).then((response) => {
+    Backendless.Files.upload("reg.txt", `/users/${currentUser.name}/${nameFolder}`).then((response) => {
 
     }).catch((e) => {
       alert(e)
