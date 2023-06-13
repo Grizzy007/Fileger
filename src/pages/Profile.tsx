@@ -7,10 +7,10 @@ const Profile = () => {
   Backendless.initApp('88F13D1C-FC0C-2D37-FF91-A541959F4400', '4D32BF48-EE07-4934-B468-177BA8E02A23');
 
   const [id, setId] = useState("")
-  const [name, setName] = useState("denis")
-  const [age, setAge] = useState("10")
-  const [country, setCountry] = useState("Ukrain")
-  const [gender, setGender] = useState("male")
+  const [name, setName] = useState("")
+  const [age, setAge] = useState("")
+  const [country, setCountry] = useState("")
+  const [gender, setGender] = useState("")
 
   const [newName, setNewName] = useState(name)
   const [newAge, setNewAge] = useState(age)
