@@ -6,8 +6,6 @@ const Registration = () => {
   Backendless.serverURL = "https://api.backendless.com";
   Backendless.initApp('88F13D1C-FC0C-2D37-FF91-A541959F4400', '4D32BF48-EE07-4934-B468-177BA8E02A23');
 
-  // const [currentUser, setCurrentUser] = useState<any>()
-
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [name, setName] = useState("")
@@ -37,19 +35,6 @@ const Registration = () => {
       console.log(response)
     })
   }, [])
-
-  // useEffect(() => {
-  //   Backendless.UserService.isValidLogin().then(response => {
-  //     console.log(response)
-  //   })
-  // }, [])
-
-  // useEffect(() => {
-  //   Backendless.UserService.getCurrentUser().then((response: any) => {
-  //     console.log(response)
-  //     setCurrentUser(response)
-  //   })
-  // }, [])
 
   return (
     <div className="App">
