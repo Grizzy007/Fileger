@@ -1,7 +1,6 @@
 .App {
     text-align: center;
     font-size: 12px;
-    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .App-logo {
@@ -16,7 +15,7 @@
 }
 
 .App-header {
-    background-color: #6b4bc2;
+    background-color: #000000;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -24,6 +23,12 @@
     justify-content: center;
     /*font-size: calc(10px + 2vmin);*/
     color: white;
+}
+
+.App-form {
+  min-width: 40%;
+  padding: 10px;
+  border-radius: 6px;
 }
 
 .App-link {
